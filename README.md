@@ -1,2 +1,2 @@
 # LIRA
- multi-Label Instrument Recongnition Algorithm
+ multi-**L**abel **I**nstrument **R**econgnition **A**lgorithm
