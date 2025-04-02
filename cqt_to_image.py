@@ -32,8 +32,8 @@ def cqt_to_image(df):
         
         buffer = BytesIO()
         plt.savefig(buffer,
-                    format='jpg',
-                    dpi=50,
+                    format='png',
+                    dpi=100,
                     bbox_inches='tight',
                     pad_inches=0)
         plt.close(fig)
@@ -42,6 +42,7 @@ def cqt_to_image(df):
         img = np.frombuffer(buffer.getvalue(), dtype=np.uint8)
         img = cv2.imdecode(img, cv2.IMREAD_COLOR)
         img = cv2.resize(img, (128, 128), interpolation=cv2.INTER_AREA)
+        img = img.astype(np.float32) / 255.0
         
         specs.append({
             'id': df['id'][i],
